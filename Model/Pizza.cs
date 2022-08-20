@@ -1,4 +1,7 @@
-﻿namespace DSD601PizzaParlour.Model
+﻿using DSD601PizzaParlour.Operations;
+using System.ComponentModel.DataAnnotations;
+
+namespace DSD601PizzaParlour.Model
 {
     public class Pizza
     {
@@ -23,5 +26,11 @@
             ListOfIngredients = new List<string>();
             ListOfSizesAndPrices = new List<string>();
         }
+
+        [Display(Name = "Select Pizza")]
+        public EnumOperationType PizzaType { get; set; }
+
+        public bool IsFirstLoad { get; set; } = false; 
+        public string? ErrorMessage { get; set; }
     }
 }
